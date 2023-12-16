@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>This is login.html</title>
+<link rel="stylesheet" type="text/css" media="aLL"
+	href="../static/css/mycss.css" th:href="@{/css/mycss.css}"/>
+</head>
+<body>
+	<h1>
+		<img src="../static/images/spring-boot-logo.png"
+			th:src="@{/images/spring-boot-logo.png}" width="100px" height="100px"/>
+	</h1>
+
+	<form method="post" th:action="@{/login}">
+		<div th:if="${param.error}">
+			<div class="error">
+				invalid credentials
+			</div>
+		</div>
+		<div th:if="${param.logout}">
+			<div class="success">
+				You have been logged out
+			</div>
+		</div>
+
+		Email: <input type="email" name="username"/> <br>
+		Password: <input type="password" name="password"/> <br>
+		<input type="submit" value="Log in" name="Login-submit"/>
+	</form>
+
+	<p><a th:href="@{/}"> Back to home page</a></p>
+	<p><a th:href="@{/register}"> Create New Account</a></p>
+
+	
+</body>
+</html>
